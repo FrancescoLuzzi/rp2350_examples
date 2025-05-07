@@ -2,7 +2,8 @@ MEMORY
 {
   /* NOTE 1 K = 1 KiBi = 1024 bytes */
   BOOT2                             : ORIGIN = 0x10000000, LENGTH = 0x100
-  FLASH                             : ORIGIN = ORIGIN(CONFIG) + LENGTH(CONFIG), LENGTH = 2M + 24K - 0x100
+  CONFIG                            : ORIGIN = ORIGIN(BOOT2) + LENGTH(BOOT2), LENGTH = 3M
+  FLASH                             : ORIGIN = ORIGIN(CONFIG) + LENGTH(CONFIG), LENGTH = 24K - 0x100
   BOOTLOADER_STATE                  : ORIGIN = ORIGIN(FLASH) + LENGTH(FLASH), LENGTH = 4K
   ACTIVE                            : ORIGIN = ORIGIN(BOOTLOADER_STATE) + LENGTH(BOOTLOADER_STATE), LENGTH = 6M
   DFU                               : ORIGIN = ORIGIN(ACTIVE) + LENGTH(ACTIVE), LENGTH = 6M
